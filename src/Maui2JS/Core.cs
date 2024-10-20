@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Maui2JS
 {
-    internal class Core
+    public class Core
     {
+        public static void Init()
+        {
+
+        }
     }
 }

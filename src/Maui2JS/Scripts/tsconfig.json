@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationDir": "./dist/@types/maui2js/",
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types/Microsoft.JSInterop.d.ts"
+    ]
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*"
+  ]
+}
