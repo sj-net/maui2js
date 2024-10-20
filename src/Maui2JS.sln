@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui2JS.Demo", "Maui2JS.Dem
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D028DF28-007F-43E4-A37B-4CE794B10CD3}"
 	ProjectSection(SolutionItems) = preProject
-		Permissions.md = Permissions.md
+		..\Permissions.md = ..\Permissions.md
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
