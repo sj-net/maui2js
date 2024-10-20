@@ -171,21 +171,3 @@ class GeoLocation {
 
 // Export an instance of GeoLocation
 export const geoLocation = new GeoLocation();
-
-//// Usage Example
-//geoLocation.getCurrentLocation().then(result => {
-//    if (result.isSuccessful) {
-//        console.log(`Current Location - Latitude: ${result.latitude}, Longitude: ${result.longitude}`);
-//    } else {
-//        console.error(`Error: ${result.errorMessage}`);
-//    }
-//});
-
-//geoLocation.getLastKnownLocation().then(result => {
-//    if (result.isSuccessful) {
-//        console.log(`Last Known Location - Latitude: ${result.latitude}, Longitude: ${result.longitude}`);
-//    } else {
-//        console.error(`Error: ${result.errorMessage}`);
-//    }
-//});
-

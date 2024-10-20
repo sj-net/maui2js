@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
 	<PropertyGroup>
 		<TargetFramework>net8.0</TargetFramework>
@@ -6,8 +6,34 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 		<AssemblyName>Maui2JS</AssemblyName>
+
+		<LangVersion>Preview</LangVersion>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<AssemblyVersion>0.0.0.2</AssemblyVersion>
+		<FileVersion>0.0.0.1</FileVersion>
+		<Version>0.0.0.1</Version>
+		<PackageVersion>0.0.0.1</PackageVersion>
+		<AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+		<CopyDebugSymbolFilesFromPackages>true</CopyDebugSymbolFilesFromPackages>
+		<CopyDocumentationFilesFromPackages>true</CopyDocumentationFilesFromPackages>
+
+		<Authors>Santosh J</Authors>
+		<Company>sj-net</Company>
+		<Product>Maui2JS</Product>
+		<PackageId>Maui2JS</PackageId>
+		<NeutralLanguage>en</NeutralLanguage>
+		<Description>A package that exposes MAUI extensions to the JS which can be invoked from JS.</Description>
+		<Copyright>Santosh J</Copyright>
+		<PackageTags>MAUI, Blazor Hybrid, JSInterop</PackageTags>
+		<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
+	<ItemGroup>
+		<None Include=".\..\..\LICENSE.txt" Pack="true" PackagePath="" />
+		<None Include=".\..\..\README.md" Pack="true" PackagePath="" />
+	</ItemGroup>
+	
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Microsoft.JSInterop" Version="8.0.0" />
@@ -20,7 +46,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <TSFilesToWatch Remove="scripts\src\Permissions.ts" />
+		<TSFilesToWatch Remove="scripts\src\Permissions.ts" />
 	</ItemGroup>
 
 	<Target Name="RemoveFilesFromPackage" BeforeTargets="Pack">
