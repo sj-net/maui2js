@@ -5,7 +5,7 @@
 		<Nullable>disable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
-		<AssemblyName>Maui2JS</AssemblyName>
+		<AssemblyName>Maui2JS.Core</AssemblyName>
 
 		<LangVersion>Preview</LangVersion>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>

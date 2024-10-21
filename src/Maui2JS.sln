@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui2JS", "Maui2JS\Maui2JS.csproj", "{E8552A9A-B249-4E97-BB75-C37CA6FEC764}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui2JS.Demo", "Maui2JS.Demo\Maui2JS.Demo.csproj", "{54E82D5D-F5D7-4F40-9223-B58C0272A121}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D028DF28-007F-43E4-A37B-4CE794B10CD3}"
@@ -17,22 +15,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\docs\Vibration.md = ..\docs\Vibration.md
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui2JS.Core", "Maui2JS.Core\Maui2JS.Core.csproj", "{69664464-00BA-4FEA-A826-2DDE20B6FBF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E8552A9A-B249-4E97-BB75-C37CA6FEC764}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8552A9A-B249-4E97-BB75-C37CA6FEC764}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8552A9A-B249-4E97-BB75-C37CA6FEC764}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8552A9A-B249-4E97-BB75-C37CA6FEC764}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54E82D5D-F5D7-4F40-9223-B58C0272A121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{54E82D5D-F5D7-4F40-9223-B58C0272A121}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54E82D5D-F5D7-4F40-9223-B58C0272A121}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{54E82D5D-F5D7-4F40-9223-B58C0272A121}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54E82D5D-F5D7-4F40-9223-B58C0272A121}.Release|Any CPU.Build.0 = Release|Any CPU
 		{54E82D5D-F5D7-4F40-9223-B58C0272A121}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{69664464-00BA-4FEA-A826-2DDE20B6FBF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69664464-00BA-4FEA-A826-2DDE20B6FBF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69664464-00BA-4FEA-A826-2DDE20B6FBF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69664464-00BA-4FEA-A826-2DDE20B6FBF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

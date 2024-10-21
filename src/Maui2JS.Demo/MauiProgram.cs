@@ -21,7 +21,7 @@ namespace Maui2JS.Demo
             builder.Logging.AddDebug();
 #endif
 
-            Maui2JS.Core.Init();
+            Maui2JS.Core.Preferences.Init();
             return builder.Build();
         }
     }

@@ -65,7 +65,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Maui2JS\Maui2JS.csproj" />
+      <ProjectReference Include="..\Maui2JS.Core\Maui2JS.Core.csproj" />
     </ItemGroup>
 
 </Project>

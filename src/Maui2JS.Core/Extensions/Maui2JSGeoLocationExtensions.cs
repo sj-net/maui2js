@@ -69,18 +69,6 @@ namespace Maui2JS.Extensions
         }
 
         [JSInvokable]
-        public static async Task<bool> IsLocationWhenInUsePermissionGranted()
-        {
-            return await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>() == PermissionStatus.Granted;
-        }
-
-        [JSInvokable]
-        public static async Task<bool> IsLocationAlwaysPermissionGranted()
-        {
-            return await Permissions.CheckStatusAsync<Permissions.LocationAlways>() == PermissionStatus.Granted;
-        }
-
-        [JSInvokable]
         public static async Task StartListeningLocation(Action<Location> locationUpdated, Action<GeolocationError> locationListeningFailed, GeolocationAccuracy accuracy = GeolocationAccuracy.Best, string minimumTime = null)
         {
             var minTime = TimeSpan.FromSeconds(5);

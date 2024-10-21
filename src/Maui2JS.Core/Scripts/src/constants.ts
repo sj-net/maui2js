@@ -1,0 +1,1 @@
+export const ASSEMBLY_NAME = 'Maui2JS.Core';
