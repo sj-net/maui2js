@@ -15,14 +15,16 @@ namespace Maui2JS.Demo
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddSingleton<Maui2JS.Core.Preferences>();
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
             builder.Logging.AddDebug();
 #endif
-
             Maui2JS.Core.Preferences.Init();
-            return builder.Build();
+            var build = builder.Build();
+
+            return build;
         }
     }
 }

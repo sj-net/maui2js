@@ -1,4 +1,10 @@
 ﻿@inherits LayoutComponentBase
+@inject IJSRuntime Js;
+@{
+    // This must be set here as the JSRuntime cannot invoke anything outside webview context.
+    if (Maui2JS.Core.Preferences.JSRuntTime == null)
+        Maui2JS.Core.Preferences.JSRuntTime = Js;
+}
 
 <div class="page">
     <div class="sidebar">

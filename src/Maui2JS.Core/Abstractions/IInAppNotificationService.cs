@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maui2JS.Core
+namespace Maui2JS.Core.Abstractions
 {
     public interface IInAppNotificationService
     {

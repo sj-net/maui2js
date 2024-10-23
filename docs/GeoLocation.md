@@ -1,6 +1,6 @@
 # GeoLocation
 
-## Uses [Maui Geolocation](https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/device/geolocation?view=net-maui-8.0&tabs=android)
+## Uses [Maui Geolocation](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pop-ups?view=net-maui-8.0)
 
 ## Description
 

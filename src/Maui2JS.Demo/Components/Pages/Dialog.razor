@@ -1,0 +1,39 @@
+﻿@page "/dialog"
+
+<h3>Dialog Demo</h3>
+
+<!-- Buttons to trigger dialog methods -->
+<div>
+    <button onclick="showAlert()">Show Alert</button>
+    <button onclick="showConfirm()">Show Confirm</button>
+    <button onclick="showPrompt()">Show Prompt</button>
+</div>
+
+<!-- Output area for showing result from dialogs -->
+<div style="margin-top:20px;">
+    <p><strong>Confirm Result:</strong> <span id="confirmResult">No result yet</span></p>
+    <p><strong>Prompt Result:</strong> <span id="promptResult">No result yet</span></p>
+</div>
+
+<script>
+    // Call dialog.showAlertAsync from TypeScript directly
+    function showAlert() {
+        maui2js.dialog.showAlertAsync("This is a simple alert!", "Alert");
+    }
+
+    // Call dialog.showConfirmAsync and update HTML with the result
+    function showConfirm() {
+        maui2js.dialog.showConfirmAsync("Do you confirm this action?", "Confirm")
+            .then(result => {
+                document.getElementById('confirmResult').innerText = result ? "User confirmed!" : "User cancelled!";
+            });
+    }
+
+    // Call dialog.showPromptAsync and update HTML with the user's input
+    function showPrompt() {
+        maui2js.dialog.showPromptAsync("Please enter your name:", "Prompt", "John Doe")
+            .then(result => {
+                document.getElementById('promptResult').innerText = result ? `User entered: ${result}` : "No input received";
+            });
+    }
+</script>

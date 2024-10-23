@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Maui2JS.Extensions
 {
-    public static class Maui2JSGeoLocationExtensions
+    public static class LocationExtensions
     {
         private static LocationListener _locationListener;
 
@@ -69,32 +69,38 @@ namespace Maui2JS.Extensions
         }
 
         [JSInvokable]
-        public static async Task StartListeningLocation(Action<Location> locationUpdated, Action<GeolocationError> locationListeningFailed, GeolocationAccuracy accuracy = GeolocationAccuracy.Best, string minimumTime = null)
+        public static async Task<bool> StartListeningLocation(string locationUpdatedCallBack, string locationListeningFailedCallBack, GeolocationAccuracy accuracy = GeolocationAccuracy.Best, string minimumTime = null)
         {
-            var minTime = TimeSpan.FromSeconds(5);
-
-            if (TimeSpan.TryParse(minimumTime, out var timeSpan))
-            {
-                minTime = timeSpan;
-            }
-
+            // StartListeningForegroundAsync cannot be called second time without stopping.
             // Check if listener is already active
             if (_locationListener == null)
             {
-                _locationListener = new LocationListener(locationUpdated, locationListeningFailed);
+                var minTime = TimeSpan.FromSeconds(5);
+
+                if (TimeSpan.TryParse(minimumTime, out var timeSpan))
+                {
+                    minTime = timeSpan;
+                }
+
+                _locationListener = new LocationListener(locationUpdatedCallBack, locationListeningFailedCallBack);
+
+                // Start listening for location updates
+                var result = await Geolocation.Default.StartListeningForegroundAsync(new GeolocationListeningRequest
+                {
+                    DesiredAccuracy = accuracy,
+                    MinimumTime = minTime
+                });
+
+                return true;
             }
-
-
-            // Start listening for location updates
-            await Geolocation.Default.StartListeningForegroundAsync(new GeolocationListeningRequest
+            else
             {
-                DesiredAccuracy = accuracy,
-                MinimumTime = minTime
-            });
+                return false;
+            }
         }
 
         [JSInvokable]
-        public static void StopListeningLocation()
+        public static bool StopListeningLocation()
         {
             if (_locationListener != null)
             {
@@ -102,31 +108,40 @@ namespace Maui2JS.Extensions
                 Geolocation.Default.StopListeningForeground();
                 _locationListener.Dispose();
                 _locationListener = null; // Clear listener
+                return true;
             }
+
+            return false;
         }
 
         private class LocationListener : IDisposable
         {
-            private readonly Action<Location> _locationChanged;
-            private readonly Action<GeolocationError> _listeningFailed;
+            private readonly string _locationChangedCallBack;
+            private readonly string _listeningFailedCallBack;
             private bool disposedValue = false; // To detect redundant calls
 
-            public LocationListener(Action<Location> locationChanged, Action<GeolocationError> listeningFailed)
+            public LocationListener(string locationChangedCallBack, string listeningFailedCallBack)
             {
-                _locationChanged = locationChanged;
-                _listeningFailed = listeningFailed;
+                _locationChangedCallBack = locationChangedCallBack;
+                _listeningFailedCallBack = listeningFailedCallBack;
                 Geolocation.Default.LocationChanged += OnLocationChanged;
                 Geolocation.Default.ListeningFailed += ListeningFailed;
             }
 
             private void ListeningFailed(object sender, GeolocationListeningFailedEventArgs e)
             {
-                _listeningFailed(e.Error);
+                if (!string.IsNullOrWhiteSpace(_listeningFailedCallBack))
+                {
+                    Core.Preferences.JSRuntTime.InvokeVoidAsync(_listeningFailedCallBack, e.Error);
+                }
             }
 
             private void OnLocationChanged(object sender, GeolocationLocationChangedEventArgs e)
             {
-                _locationChanged(e.Location);
+                if (!string.IsNullOrWhiteSpace(_locationChangedCallBack))
+                {
+                    Core.Preferences.JSRuntTime.InvokeVoidAsync(_locationChangedCallBack, e.Location);
+                }
             }
 
             public void Dispose()

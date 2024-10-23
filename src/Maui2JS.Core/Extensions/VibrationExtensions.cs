@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Maui2JS.Extensions
 {
-    public static class Maui2JSVibrationExtensions
+    public static class VibrationExtensions
     {
         [JSInvokable]
         public static async Task StartVibration(string durationTime)

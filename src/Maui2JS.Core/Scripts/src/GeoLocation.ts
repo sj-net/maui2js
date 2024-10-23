@@ -144,7 +144,7 @@ class GeoLocation {
     ) {
         try {
             // Here you might want to invoke a method in C# that starts listening
-            await DotNet.invokeMethodAsync(
+            var result = await DotNet.invokeMethodAsync(
                 ASSEMBLY_NAME,
                 `StartListeningLocation`,
                 locationChangedCallback,
@@ -152,6 +152,7 @@ class GeoLocation {
                 accuracy,
                 minTime
             );
+            console.log(`Start Listening Status: ${result}`)
         } catch (error: any) {
             console.error(`Error starting location updates: ${error.message}`);
         }
@@ -162,7 +163,8 @@ class GeoLocation {
      */
     async stopListeningLocation() {
         try {
-            await DotNet.invokeMethodAsync(ASSEMBLY_NAME, `StopListeningLocation`);
+            var result = await DotNet.invokeMethodAsync(ASSEMBLY_NAME, `StopListeningLocation`);
+            console.log(`Start Listening Status: ${result}`)
         } catch (error: any) {
             console.error(`Error stopping location updates: ${error.message}`);
         }

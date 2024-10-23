@@ -1,16 +1,112 @@
 ﻿@page "/geolocation"
 
-<h1>Geo Location</h1>
 
-<p role="status">Current count: @currentCount</p>
+<h3>Geolocation Demo</h3>
 
-<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<!-- Buttons to trigger geolocation methods -->
+<div>
+    <button onclick="getCurrentLocation()">Get Current Location</button>
+    <button onclick="getLastKnownLocation()">Get Last Known Location</button>
+    <button onclick="checkLocationWhenInUsePermission()">Check 'When In Use' Location Permission</button>
+    <button onclick="checkLocationAlwaysPermission()">Check 'Always' Location Permission</button>
+    <button onclick="startListeningLocation()">Start Listening for Location</button>
+    <button onclick="stopListeningLocation()">Stop Listening for Location</button>
+</div>
 
-@code {
-    private int currentCount = 0;
+<!-- Output area for showing results -->
+<div style="margin-top:20px;">
+    <p><strong>Current Location:</strong> <span id="currentLocation">No result yet</span></p>
+    <p><strong>Last Known Location:</strong> <span id="lastKnownLocation">No result yet</span></p>
+    <p><strong>'When In Use' Permission:</strong> <span id="whenInUsePermission">No result yet</span></p>
+    <p><strong>'Always' Permission:</strong> <span id="alwaysPermission">No result yet</span></p>
+    <p><strong>Listening Status:</strong> <span id="listeningStatus">Not listening</span></p>
+    <p><strong>Latest Location:</strong> <span id="listeningLocation">No updates yet</span></p>
+</div>
 
-    private void IncrementCount()
-    {
-        currentCount++;
+<script>
+    // Calls geoLocation.getCurrentLocation and updates the HTML with the result
+    function getCurrentLocation() {
+        maui2js.geoLocation.getCurrentLocation()
+            .then(result => {
+                const output = result.isSuccessful
+                    ? `Latitude: ${result.latitude}, Longitude: ${result.longitude}`
+                    : `Error: ${result.errorMessage}`;
+                document.getElementById('currentLocation').innerText = output;
+            })
+            .catch(error => {
+                document.getElementById('currentLocation').innerText = `Error: ${error.message}`;
+            });
     }
-}
+
+    // Calls geoLocation.getLastKnownLocation and updates the HTML with the result
+    function getLastKnownLocation() {
+        maui2js.geoLocation.getLastKnownLocation()
+            .then(result => {
+                const output = result.isSuccessful
+                    ? `Latitude: ${result.latitude}, Longitude: ${result.longitude}`
+                    : `Error: ${result.errorMessage}`;
+                document.getElementById('lastKnownLocation').innerText = output;
+            })
+            .catch(error => {
+                document.getElementById('lastKnownLocation').innerText = `Error: ${error.message}`;
+            });
+    }
+
+    // Calls geoLocation.isLocationWhenInUsePermissionGranted and updates the HTML with the result
+    function checkLocationWhenInUsePermission() {
+        maui2js.geoLocation.isLocationWhenInUsePermissionGranted()
+            .then(isGranted => {
+                document.getElementById('whenInUsePermission').innerText = isGranted ? "Granted" : "Not Granted";
+            })
+            .catch(error => {
+                document.getElementById('whenInUsePermission').innerText = `Error: ${error.message}`;
+            });
+    }
+
+    // Calls geoLocation.isLocationAlwaysPermissionGranted and updates the HTML with the result
+    function checkLocationAlwaysPermission() {
+        maui2js.geoLocation.isLocationAlwaysPermissionGranted()
+            .then(isGranted => {
+                document.getElementById('alwaysPermission').innerText = isGranted ? "Granted" : "Not Granted";
+            })
+            .catch(error => {
+                document.getElementById('alwaysPermission').innerText = `Error: ${error.message}`;
+            });
+    }
+
+    // Define the callback functions directly in the JavaScript context
+    function locationChangedCallback(location) {
+        console.log(location);
+        const output = `Latitude: ${location.latitude}, Longitude: ${location.longitude}`;
+        document.getElementById('listeningLocation').innerText = output;
+    };
+
+    function listeningFailedCallback(error) {
+        console.log(error);
+        document.getElementById('listeningLocation').innerText = `Error: ${GeolocationError[error]}`;
+    }
+
+    // Starts listening for location updates and updates HTML when location changes
+    function startListeningLocation() {
+        document.getElementById('listeningStatus').innerText = "Listening for location updates...";
+
+        maui2js.geoLocation.startListeningLocation(
+            "locationChangedCallback",
+            "listeningFailedCallback",
+            2,
+            "00:00:03"
+        );
+    }
+
+    // Stops listening for location updates and updates the HTML
+    function stopListeningLocation() {
+        maui2js.geoLocation.stopListeningLocation()
+            .then(() => {
+                document.getElementById('listeningStatus').innerText = "Not listening";
+                document.getElementById('listeningLocation').innerText = "No updates yet";
+            })
+            .catch(error => {
+                document.getElementById('listeningStatus').innerText = `Error: ${error.message}`;
+            });
+    }
+</script>

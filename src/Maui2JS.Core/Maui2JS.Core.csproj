@@ -38,6 +38,8 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="Microsoft.JSInterop" Version="8.0.0" />
 		<PackageReference Include="Microsoft.Maui.Essentials" Version="8.0.92" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -46,6 +48,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<TSFilesToWatch Remove="Scripts\src\Dialog.ts" />
 		<TSFilesToWatch Remove="scripts\src\Permissions.ts" />
 	</ItemGroup>
 

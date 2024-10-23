@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Microsoft.Maui.ApplicationModel.Permissions;
+using Microsoft.Maui.ApplicationModel;
 
 namespace Maui2JS.Extensions
 {
@@ -14,244 +14,244 @@ namespace Maui2JS.Extensions
         // Battery Permission
         [JSInvokable]
         public static async Task<bool> IsBatteryPermissionGranted() =>
-            await CheckStatusAsync<Battery>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Battery>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestBatteryPermission() =>
-            await RequestAsync<Battery>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Battery>() == PermissionStatus.Granted;
 
         // Bluetooth Permission
         [JSInvokable]
         public static async Task<bool> IsBluetoothPermissionGranted() =>
-            await CheckStatusAsync<Bluetooth>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Bluetooth>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestBluetoothPermission() =>
-            await RequestAsync<Bluetooth>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Bluetooth>() == PermissionStatus.Granted;
 
         // Calendar Read Permission
         [JSInvokable]
         public static async Task<bool> IsCalendarReadPermissionGranted() =>
-            await CheckStatusAsync<CalendarRead>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.CalendarRead>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestCalendarReadPermission() =>
-            await RequestAsync<CalendarRead>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.CalendarRead>() == PermissionStatus.Granted;
 
         // Calendar Write Permission
         [JSInvokable]
         public static async Task<bool> IsCalendarWritePermissionGranted() =>
-            await CheckStatusAsync<CalendarWrite>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.CalendarWrite>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestCalendarWritePermission() =>
-            await RequestAsync<CalendarWrite>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.CalendarWrite>() == PermissionStatus.Granted;
 
         // Camera Permission
         [JSInvokable]
         public static async Task<bool> IsCameraPermissionGranted() =>
-            await CheckStatusAsync<Camera>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Camera>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestCameraPermission() =>
-            await RequestAsync<Camera>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Camera>() == PermissionStatus.Granted;
 
         // Contacts Read Permission
         [JSInvokable]
         public static async Task<bool> IsContactsReadPermissionGranted() =>
-            await CheckStatusAsync<ContactsRead>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.ContactsRead>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestContactsReadPermission() =>
-            await RequestAsync<ContactsRead>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.ContactsRead>() == PermissionStatus.Granted;
 
         // Contacts Write Permission
         [JSInvokable]
         public static async Task<bool> IsContactsWritePermissionGranted() =>
-            await CheckStatusAsync<ContactsWrite>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.ContactsWrite>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestContactsWritePermission() =>
-            await RequestAsync<ContactsWrite>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.ContactsWrite>() == PermissionStatus.Granted;
 
         // Flashlight Permission
         [JSInvokable]
         public static async Task<bool> IsFlashlightPermissionGranted() =>
-            await CheckStatusAsync<Flashlight>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Flashlight>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestFlashlightPermission() =>
-            await RequestAsync<Flashlight>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Flashlight>() == PermissionStatus.Granted;
 
         // Launch App Permission
         [JSInvokable]
         public static async Task<bool> IsLaunchAppPermissionGranted() =>
-            await CheckStatusAsync<LaunchApp>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.LaunchApp>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestLaunchAppPermission() =>
-            await RequestAsync<LaunchApp>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.LaunchApp>() == PermissionStatus.Granted;
 
         // Location When In Use Permission
         [JSInvokable]
         public static async Task<bool> IsLocationWhenInUsePermissionGranted() =>
-            await CheckStatusAsync<LocationWhenInUse>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestLocationWhenInUsePermission() =>
-            await RequestAsync<LocationWhenInUse>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.LocationWhenInUse>() == PermissionStatus.Granted;
 
         // Location Always Permission
         [JSInvokable]
         public static async Task<bool> IsLocationAlwaysPermissionGranted() =>
-            await CheckStatusAsync<LocationAlways>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.LocationAlways>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestLocationAlwaysPermission() =>
-            await RequestAsync<LocationAlways>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.LocationAlways>() == PermissionStatus.Granted;
 
         // Maps Permission
         [JSInvokable]
         public static async Task<bool> IsMapsPermissionGranted() =>
-            await CheckStatusAsync<Maps>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Maps>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestMapsPermission() =>
-            await RequestAsync<Maps>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Maps>() == PermissionStatus.Granted;
 
         // Media Permission
         [JSInvokable]
         public static async Task<bool> IsMediaPermissionGranted() =>
-            await CheckStatusAsync<Media>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Media>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestMediaPermission() =>
-            await RequestAsync<Media>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Media>() == PermissionStatus.Granted;
 
         // Microphone Permission
         [JSInvokable]
         public static async Task<bool> IsMicrophonePermissionGranted() =>
-            await CheckStatusAsync<Microphone>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Microphone>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestMicrophonePermission() =>
-            await RequestAsync<Microphone>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Microphone>() == PermissionStatus.Granted;
 
         // Nearby Wifi Devices Permission
         [JSInvokable]
         public static async Task<bool> IsNearbyWifiDevicesPermissionGranted() =>
-            await CheckStatusAsync<NearbyWifiDevices>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.NearbyWifiDevices>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestNearbyWifiDevicesPermission() =>
-            await RequestAsync<NearbyWifiDevices>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.NearbyWifiDevices>() == PermissionStatus.Granted;
 
         // Network State Permission
         [JSInvokable]
         public static async Task<bool> IsNetworkStatePermissionGranted() =>
-            await CheckStatusAsync<NetworkState>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.NetworkState>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestNetworkStatePermission() =>
-            await RequestAsync<NetworkState>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.NetworkState>() == PermissionStatus.Granted;
 
         // Phone Permission
         [JSInvokable]
         public static async Task<bool> IsPhonePermissionGranted() =>
-            await CheckStatusAsync<Phone>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Phone>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestPhonePermission() =>
-            await RequestAsync<Phone>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Phone>() == PermissionStatus.Granted;
 
         // Photos Permission
         [JSInvokable]
         public static async Task<bool> IsPhotosPermissionGranted() =>
-            await CheckStatusAsync<Photos>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Photos>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestPhotosPermission() =>
-            await RequestAsync<Photos>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Photos>() == PermissionStatus.Granted;
 
         // Photos Add Only Permission
         [JSInvokable]
         public static async Task<bool> IsPhotosAddOnlyPermissionGranted() =>
-            await CheckStatusAsync<PhotosAddOnly>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.PhotosAddOnly>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestPhotosAddOnlyPermission() =>
-            await RequestAsync<PhotosAddOnly>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.PhotosAddOnly>() == PermissionStatus.Granted;
 
         // Post Notifications Permission
         [JSInvokable]
         public static async Task<bool> IsPostNotificationsPermissionGranted() =>
-            await CheckStatusAsync<PostNotifications>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.PostNotifications>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestPostNotificationsPermission() =>
-            await RequestAsync<PostNotifications>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.PostNotifications>() == PermissionStatus.Granted;
 
         // Reminders Permission
         [JSInvokable]
         public static async Task<bool> IsRemindersPermissionGranted() =>
-            await CheckStatusAsync<Reminders>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Reminders>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestRemindersPermission() =>
-            await RequestAsync<Reminders>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Reminders>() == PermissionStatus.Granted;
 
         // Sensors Permission
         [JSInvokable]
         public static async Task<bool> IsSensorsPermissionGranted() =>
-            await CheckStatusAsync<Sensors>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Sensors>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestSensorsPermission() =>
-            await RequestAsync<Sensors>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Sensors>() == PermissionStatus.Granted;
 
         // SMS Permission
         [JSInvokable]
         public static async Task<bool> IsSmsPermissionGranted() =>
-            await CheckStatusAsync<Sms>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Sms>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestSmsPermission() =>
-            await RequestAsync<Sms>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Sms>() == PermissionStatus.Granted;
 
         // Speech Permission
         [JSInvokable]
         public static async Task<bool> IsSpeechPermissionGranted() =>
-            await CheckStatusAsync<Speech>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Speech>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestSpeechPermission() =>
-            await RequestAsync<Speech>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Speech>() == PermissionStatus.Granted;
 
         // Storage Read Permission
         [JSInvokable]
         public static async Task<bool> IsStorageReadPermissionGranted() =>
-            await CheckStatusAsync<StorageRead>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.StorageRead>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestStorageReadPermission() =>
-            await RequestAsync<StorageRead>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.StorageRead>() == PermissionStatus.Granted;
 
         // Storage Write Permission
         [JSInvokable]
         public static async Task<bool> IsStorageWritePermissionGranted() =>
-            await CheckStatusAsync<StorageWrite>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.StorageWrite>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestStorageWritePermission() =>
-            await RequestAsync<StorageWrite>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.StorageWrite>() == PermissionStatus.Granted;
 
         // Vibrate Permission
         [JSInvokable]
         public static async Task<bool> IsVibratePermissionGranted() =>
-            await CheckStatusAsync<Vibrate>() == PermissionStatus.Granted;
+            await Permissions.CheckStatusAsync<Permissions.Vibrate>() == PermissionStatus.Granted;
 
         [JSInvokable]
         public static async Task<bool> RequestVibratePermission() =>
-            await RequestAsync<Vibrate>() == PermissionStatus.Granted;
+            await Permissions.RequestAsync<Permissions.Vibrate>() == PermissionStatus.Granted;
     }
 }
