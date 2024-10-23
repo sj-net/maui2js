@@ -1,26 +1,28 @@
 ﻿@page "/geolocation"
-
-
-<h3>Geolocation Demo</h3>
+<h3 class="text-center mb-4">Geolocation Demo</h3>
 
 <!-- Buttons to trigger geolocation methods -->
-<div>
-    <button onclick="getCurrentLocation()">Get Current Location</button>
-    <button onclick="getLastKnownLocation()">Get Last Known Location</button>
-    <button onclick="checkLocationWhenInUsePermission()">Check 'When In Use' Location Permission</button>
-    <button onclick="checkLocationAlwaysPermission()">Check 'Always' Location Permission</button>
-    <button onclick="startListeningLocation()">Start Listening for Location</button>
-    <button onclick="stopListeningLocation()">Stop Listening for Location</button>
-</div>
-
-<!-- Output area for showing results -->
-<div style="margin-top:20px;">
+<div class="text-center mb-4">
     <p><strong>Current Location:</strong> <span id="currentLocation">No result yet</span></p>
+    <button class="btn btn-primary mx-2" onclick="getCurrentLocation()">Get Current Location</button>
+    <hr/>
     <p><strong>Last Known Location:</strong> <span id="lastKnownLocation">No result yet</span></p>
+    <button class="btn btn-secondary mx-2" onclick="getLastKnownLocation()">Get Last Known Location</button>
+    <hr />
     <p><strong>'When In Use' Permission:</strong> <span id="whenInUsePermission">No result yet</span></p>
+    <button class="btn btn-info mx-2" onclick="checkLocationWhenInUsePermission()">Check 'When In Use' Permission</button>
+    <hr />
     <p><strong>'Always' Permission:</strong> <span id="alwaysPermission">No result yet</span></p>
+    <button class="btn btn-warning mx-2" onclick="checkLocationAlwaysPermission()">Check 'Always' Permission</button>
+    <hr />
+    <button class="btn btn-success mx-2" onclick="startListeningLocation()">Start Listening</button>
+    <button class="btn btn-danger mx-2" onclick="stopListeningLocation()">Stop Listening</button>
+    <br />
+    <br />
     <p><strong>Listening Status:</strong> <span id="listeningStatus">Not listening</span></p>
     <p><strong>Latest Location:</strong> <span id="listeningLocation">No updates yet</span></p>
+
+    <hr />
 </div>
 
 <script>

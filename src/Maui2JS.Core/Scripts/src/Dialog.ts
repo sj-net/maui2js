@@ -9,11 +9,12 @@ class Dialog {
    * @returns A Promise that resolves when the alert is closed.
    */
     async showAlertAsync(message: string, title: string = "Alert"): Promise<void> {
-        return new Promise<void>((resolve) => {
-            // Use the browser's built-in alert function to show the message
-            alert(`${title}: ${message}`);
-            // Resolve the promise after the user closes the alert
-            resolve();
+        return new Promise<void>(async (resolve) => {
+            try {
+                await DotNet.invokeMethodAsync(ASSEMBLY_NAME, `ShowAlertAsync`, message, title);
+            } catch (error: any) {
+                console.error(`Error: ${error.message}`);
+            } resolve();
         });
     }
 
@@ -25,11 +26,14 @@ class Dialog {
      * @returns A Promise that resolves to true if the user clicks 'OK', false otherwise.
      */
     async showConfirmAsync(message: string, title: string = "Confirm"): Promise<boolean> {
-        return new Promise<boolean>((resolve) => {
-            // Use the browser's built-in confirm function to show the message
-            const isConfirmed = confirm(`${title}: ${message}`);
-            // Resolve the promise with true if OK is clicked, false otherwise
-            resolve(isConfirmed);
+        return new Promise<boolean>(async (resolve) => {
+            try {
+                resolve(await DotNet.invokeMethodAsync(ASSEMBLY_NAME, `ShowConfirmAsync`, message, title));
+                return;
+            } catch (error: any) {
+                console.error(`Error: ${error.message}`);
+                resolve(false);
+            }
         });
     }
 
@@ -42,11 +46,13 @@ class Dialog {
      * @returns A Promise that resolves with the user's input or an empty string if cancelled.
      */
     async showPromptAsync(message: string, title: string = "Prompt", defaultValue: string = ""): Promise<string> {
-        return new Promise<string>((resolve) => {
-            // Use the browser's built-in prompt function to show the message
-            const input = prompt(`${title}: ${message}`, defaultValue);
-            // Resolve the promise with the input value or an empty string if cancelled
-            resolve(input || "");
+        return new Promise<string>(async (resolve) => {
+            try {
+                resolve(await DotNet.invokeMethodAsync(ASSEMBLY_NAME, `ShowPromptAsync`, message, title, defaultValue));
+            } catch (error: any) {
+                console.error(`Error: ${error.message}`);
+                resolve("");
+            }
         });
     }
 }

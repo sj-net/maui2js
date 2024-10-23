@@ -1,22 +1,20 @@
 ﻿@page "/vibration"
 
-<h1>Vibration</h1>
+<h1 class="text-center mb-4">Vibration Demo</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <label for="vibrationTime">Time (in seconds):</label>
-            <input type="number" id="vibrationTime" class="form-control" min="1" max="5" value="3" />
-        </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-12">
-            <button class="btn btn-primary" onclick="startVibration()">Start</button>
-            <button class="btn btn-danger" onclick="stopVibration()">Stop</button>
-        </div>
+<div class="row mb-3">
+    <div class="col-12">
+        <label for="vibrationTime">Time (in seconds):</label>
+        <input type="number" id="vibrationTime" class="form-control" min="1" max="5" value="3" />
     </div>
 </div>
 
+<div class="row">
+    <div class="col-12">
+        <button class="btn btn-primary mx-2" onclick="startVibration()">Start</button>
+        <button class="btn btn-danger mx-2" onclick="stopVibration()">Stop</button>
+    </div>
+</div>
 <script>
     function startVibration() {
         const vibrationTime = document.getElementById('vibrationTime').value;

@@ -1,20 +1,20 @@
 ﻿@page "/dialog"
 
-<h3>Dialog Demo</h3>
+<h3 class="text-center mb-4">Dialog Demo</h3>
 
 <!-- Buttons to trigger dialog methods -->
-<div>
-    <button onclick="showAlert()">Show Alert</button>
-    <button onclick="showConfirm()">Show Confirm</button>
-    <button onclick="showPrompt()">Show Prompt</button>
+<div class="text-center mb-4">
+    <button class="btn btn-primary mx-2" onclick="showAlert()">Show Alert</button>
+    <button class="btn btn-secondary mx-2" onclick="showConfirm()">Show Confirm</button>
+    <button class="btn btn-info mx-2" onclick="showPrompt()">Show Prompt</button>
 </div>
 
 <!-- Output area for showing result from dialogs -->
-<div style="margin-top:20px;">
+<div class="border rounded p-4 bg-light">
+    <h5 class="mb-3">Dialog Results:</h5>
     <p><strong>Confirm Result:</strong> <span id="confirmResult">No result yet</span></p>
     <p><strong>Prompt Result:</strong> <span id="promptResult">No result yet</span></p>
 </div>
-
 <script>
     // Call dialog.showAlertAsync from TypeScript directly
     function showAlert() {
@@ -25,7 +25,7 @@
     function showConfirm() {
         maui2js.dialog.showConfirmAsync("Do you confirm this action?", "Confirm")
             .then(result => {
-                document.getElementById('confirmResult').innerText = result ? "User confirmed!" : "User cancelled!";
+                document.getElementById('confirmResult').innerText = result ? "Ok" : "Cancel";
             });
     }
 
@@ -33,7 +33,7 @@
     function showPrompt() {
         maui2js.dialog.showPromptAsync("Please enter your name:", "Prompt", "John Doe")
             .then(result => {
-                document.getElementById('promptResult').innerText = result ? `User entered: ${result}` : "No input received";
+                document.getElementById('promptResult').innerText = result ? result : "No input received";
             });
     }
 </script>
