@@ -73,16 +73,31 @@ geoLocation.isLocationAlwaysPermissionGranted().then(isGranted => {
 To start listening for location updates, provide callback functions for location changes and failures:
 
 ```javascript
-geoLocation.startListeningLocation(
-    (location) => {
-        console.log('Location changed:', location);
-    },
-    (error) => {
-        console.error('Listening failed:', error);
-    },
-    GeolocationAccuracy.High, // Optional: Desired accuracy
-    "00:00:10" // Optional: Minimum time interval for updates
-);
+    // the parameters between JS & Blazor must be JSON serializable. 
+    // Hence we pass a function name as callback and that will be invoked using JSRunTime 
+    // Define the callback functions directly in the JavaScript context
+    function locationChangedCallback(location) {
+        console.log(location);
+        const output = `Latitude: ${location.latitude}, Longitude: ${location.longitude}`;
+        document.getElementById('listeningLocation').innerText = output;
+    };
+
+    function listeningFailedCallback(error) {
+        console.log(error);
+        document.getElementById('listeningLocation').innerText = `Error: ${GeolocationError[error]}`;
+    }
+
+    // Starts listening for location updates and updates HTML when location changes
+    function startListeningLocation() {
+        document.getElementById('listeningStatus').innerText = "Listening for location updates...";
+
+        maui2js.geoLocation.startListeningLocation(
+            "locationChangedCallback",
+            "listeningFailedCallback",
+            2, // default is 5
+            "00:00:03" // default is "00:00:05"
+        );
+    }
 ```
 
 #### 5. Stopping Location Updates
@@ -110,9 +125,9 @@ The `GeolocationError` enum represents possible errors when retrieving location 
 
 The `GeolocationAccuracy` enum defines the level of accuracy for location data:
 
-- `Default`: Medium accuracy (30-500 meters).
-- `Lowest`: Lowest accuracy (1000-5000 meters).
-- `Low`: Low accuracy (300-3000 meters).
-- `Medium`: Medium accuracy (30-500 meters).
-- `High`: High accuracy (0-100 meters).
-- `Best`: Best accuracy (0-10 meters).
+- 0 -`Default`: Medium accuracy (30-500 meters).
+- 1 - `Lowest`: Lowest accuracy (1000-5000 meters).
+- 2 - `Low`: Low accuracy (300-3000 meters).
+- 3 - `Medium`: Medium accuracy (30-500 meters).
+- 4 - `High`: High accuracy (0-100 meters).
+- 5 - `Best`: Best accuracy (0-10 meters).
