@@ -78,18 +78,14 @@ To start listening for location updates, provide callback functions for location
     // Define the callback functions directly in the JavaScript context
     function locationChangedCallback(location) {
         console.log(location);
-        const output = `Latitude: ${location.latitude}, Longitude: ${location.longitude}`;
-        document.getElementById('listeningLocation').innerText = output;
     };
 
     function listeningFailedCallback(error) {
         console.log(error);
-        document.getElementById('listeningLocation').innerText = `Error: ${GeolocationError[error]}`;
     }
 
     // Starts listening for location updates and updates HTML when location changes
     function startListeningLocation() {
-        document.getElementById('listeningStatus').innerText = "Listening for location updates...";
 
         maui2js.geoLocation.startListeningLocation(
             "locationChangedCallback",
