@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Maui2JS.Core;
+using Maui2JS.Core.Abstractions;
+using Microsoft.Extensions.Logging;
 
 namespace Maui2JS.Demo
 {
@@ -16,6 +18,9 @@ namespace Maui2JS.Demo
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddSingleton<Maui2JS.Core.Preferences>();
+#if ANDROID
+            builder.Services.AddSingleton<ILocalNotificationService, Maui2JS.Core.Android.LocalNotificationService>();
+#endif
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
@@ -23,6 +28,8 @@ namespace Maui2JS.Demo
 #endif
             Maui2JS.Core.Preferences.Init();
             var build = builder.Build();
+
+            Ioc.Default.SetServiceProvider(build.Services);
 
             return build;
         }

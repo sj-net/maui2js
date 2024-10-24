@@ -1,0 +1,74 @@
+﻿@page "/local_notifications"
+<div class="container mt-5">
+    <h3>Local Notification Demo</h3>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group m-2">
+                <label for="notificationTitle">Title:</label>
+                <input type="text" id="notificationTitle" class="form-control" placeholder="Enter title" value="title" />
+            </div>
+            <div class="form-group m-2">
+                <label for="notificationMessage">Message:</label>
+                <input type="text" id="notificationMessage" class="form-control" placeholder="Enter message" value="some message " />
+            </div>
+
+            <div class="form-group m-2">
+                <label for="scheduleTime">Notify Time:</label>
+                <input type="datetime-local" id="scheduleTime" class="form-control" />
+            </div>
+            <br />
+            <br />
+            <button class="btn btn-primary m-2" onclick="sendInstantNotification()">Send Instant Notification</button>
+            <br />
+            <br />
+            <button class="btn btn-secondary m-2" onclick="scheduleNotification()">Schedule Notification</button>
+            <br />
+            <br />
+            <hr />
+            <p id="status"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to send instant notification
+    function sendInstantNotification() {
+        document.getElementById('status').innerText = "";
+        const title = document.getElementById('notificationTitle').value;
+        const message = document.getElementById('notificationMessage').value;
+
+        maui2js.localNotification.sendInstantNotificationAsync(title, message)
+            .then(success => {
+                if (success) {
+                    document.getElementById('status').innerText = 'Instant notification sent successfully.';
+                } else {
+                    document.getElementById('status').innerText = 'Failed to send instant notification.';
+                }
+            })
+            .catch(error => {
+                console.error('Error sending instant notification:', error);
+            });
+    }
+
+    // Function to schedule a notification
+    function scheduleNotification() {
+        document.getElementById('status').innerText = "";
+        const title = document.getElementById('notificationTitle').value;
+        const message = document.getElementById('notificationMessage').value;
+        const notifyTime = document.getElementById('scheduleTime').value;
+
+        maui2js.localNotification.scheduleNotificationAsync(title, message, notifyTime)
+            .then(success => {
+                if (success) {
+                    document.getElementById('status').innerText = 'Notification scheduled successfully.';
+                } else {
+                    document.getElementById('status').innerText = 'Failed to schedule notification.';
+                }
+            })
+            .catch(error => {
+                document.getElementById('status').innerText = 'Error scheduling notification.';
+                console.error('Error scheduling notification:', error);
+            });
+    }
+</script>

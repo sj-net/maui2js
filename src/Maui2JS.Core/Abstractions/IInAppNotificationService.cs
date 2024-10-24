@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace Maui2JS.Core.Abstractions
 {
-    public interface IInAppNotificationService
+    public interface ILocalNotificationService
     {
-        Task<Guid> Show(InAppNotificationModel data, NotificationActionButtonModel accept, NotificationActionButtonModel maybe, NotificationActionButtonModel reject);
-
-        Task Hide(Guid guid);
+        Task<bool> SendInstantNotification(string title, string message, int? smallIconResourceId = null);
+        Task<bool> ScheduleNotification(string title, string message, DateTime notifyTime, int? smallIconResourceId = null);
     }
 }

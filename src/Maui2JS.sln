@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui2JS.Core", "Maui2JS.Core\Maui2JS.Core.csproj", "{69664464-00BA-4FEA-A826-2DDE20B6FBF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui2JS.Core.Android", "Maui2JS.Core.Android\Maui2JS.Core.Android.csproj", "{AB18FC2A-D05C-4F24-AEC3-1A3731ECC953}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui2JS.Core.Android", "Maui2JS.Core.Android\Maui2JS.Core.Android.csproj", "{AB18FC2A-D05C-4F24-AEC3-1A3731ECC953}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui2JS.Core.iOS", "Maui2JS.Core.iOS\Maui2JS.Core.iOS.csproj", "{544AEAB1-A1DB-4B99-9878-348238CB2AD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Maui2JS.Core.iOS", "Maui2JS.Core.iOS\Maui2JS.Core.iOS.csproj", "{544AEAB1-A1DB-4B99-9878-348238CB2AD3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

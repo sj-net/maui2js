@@ -49,6 +49,7 @@
 
 	<ItemGroup>
 		<TSFilesToWatch Remove="Scripts\src\Dialog.ts" />
+		<TSFilesToWatch Remove="scripts\src\LocalNotification.ts" />
 		<TSFilesToWatch Remove="scripts\src\Permissions.ts" />
 	</ItemGroup>
 

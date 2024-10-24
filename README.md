@@ -11,4 +11,6 @@ Below are the extensions and docs on how to use them.
 - [x] [GeoLocation](docs/GeoLocation.md)  
 - [x] [Vibration](docs/Vibration.md)  
 - [x] [Dialog](docs/Dialog.md)  
-- [ ] [Background Tasks](docs/backgroundtasks.md)
+- [ ] [Local Notifications(WIP)](docs/LocalNotifications.md)  
+- [ ] Background Tasks
+- [ ] SMS Read / Write
